@@ -1,23 +1,21 @@
 require('dotenv').config();
+require('./db').connect();
+
+const usersEndpoint = require('./users-endpoint');
+const reposEndpoint = require('./repos-endpoint');
 
 const express = require('express');
-const expressHandlebars = require('express-handlebars');
-const bodyParser = require('body-parser');
-
 const app = express();
 
-app.use(express.static('public'));
+app.use('/users', usersEndpoint);
+app.use('/repos', reposEndpoint);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.get('/ping', (req, res) => {
+  res.json({ pong: true });
+});
 
-app.engine('handlebars', expressHandlebars({
-  defaultLayout: 'main'
-}));
-app.set('view engine', 'handlebars');
-
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('*', (req, res) => {
+  res.sendStatus(404);
 });
 
 app.listen(process.env.PORT || 3001);
