@@ -5,7 +5,9 @@ const usersEndpoint = require('./users-endpoint');
 const reposEndpoint = require('./repos-endpoint');
 
 const express = require('express');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 
 app.use('/users', usersEndpoint);
 app.use('/repos', reposEndpoint);
