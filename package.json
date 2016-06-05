@@ -1,0 +1,25 @@
+{
+  "name": "express-server-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "private": true,
+  "engines": {
+    "node": "6.1.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
