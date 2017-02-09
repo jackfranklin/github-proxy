@@ -26,6 +26,10 @@ exports.repos = (username, repo) => {
   return githubFetch(`/repos/${username}/${repo}`);
 };
 
+exports.reposForUser = (username, page = 1) => {
+  return githubFetch(`/users/${username}/repos?page=${page}`);
+}
+
 exports.issues = (username, repo) => {
   return githubFetch(`/repos/${username}/${repo}/issues`);
 };
