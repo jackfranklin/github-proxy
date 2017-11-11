@@ -3,6 +3,7 @@ require('./db').connect();
 
 const usersEndpoint = require('./users-endpoint');
 const reposEndpoint = require('./repos-endpoint');
+const searchEndpoint = require('./search-endpoint');
 
 const express = require('express');
 const cors = require('cors');
@@ -11,6 +12,7 @@ app.use(cors());
 
 app.use('/users', usersEndpoint);
 app.use('/repos', reposEndpoint);
+app.use('/search', searchEndpoint);
 
 app.get('/ping', (req, res) => {
   res.json({ pong: true });
@@ -21,4 +23,3 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3001);
-

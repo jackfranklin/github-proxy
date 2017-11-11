@@ -17,6 +17,8 @@ module.exports = (mongoObject, { cache, transform = x => x }) => {
     versionKey: false
   });
 
+  console.log('got mongo object', mongoObj);
+
   const mongoId = mongoObj._id;
   const createdAt = mongoObj.createdAt;
 

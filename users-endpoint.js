@@ -32,7 +32,7 @@ router.get('/:username/repos', (req, res) => {
       }
     },
     outTransform: data => {
-      return data.repos
+      return { items: data.repos }
     },
     apiRequestFn: () => api.reposForUser(username, req.params.page)
   })
@@ -40,5 +40,3 @@ router.get('/:username/repos', (req, res) => {
 })
 
 module.exports = router;
-
-

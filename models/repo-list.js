@@ -10,4 +10,3 @@ const repoListSchema = new mongoose.Schema({
 const RepoList = mongoose.model('RepoList', repoListSchema);
 
 module.exports = RepoList;
-

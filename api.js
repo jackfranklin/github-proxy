@@ -8,10 +8,7 @@ const fetchWithToken = (url, options = {}) => {
     headers: {
       'Authorization' : `token ${TOKEN}`
     }
-  })).then(d => d.json()).then(d => {
-    console.log('GitHub response data received');
-    return d;
-  });;
+  })).then(d => d.json())
 }
 
 const githubFetch = (extraUrl, options = {}) => {
@@ -33,3 +30,7 @@ exports.reposForUser = (username, page = 1) => {
 exports.issues = (username, repo) => {
   return githubFetch(`/repos/${username}/${repo}/issues`);
 };
+
+exports.searchRepositories = query => {
+  return githubFetch(`/search/repositories?q=${query}`);
+}
